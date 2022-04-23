@@ -1,0 +1,62 @@
+{
+  "description": "convert image to text",
+  "author": "Vounts",
+  "build": {
+    "appId": "com.imgtotext"
+  },
+  "name": "img-to-text",
+  "version": "0.1.0",
+  "private": true,
+  "main": "public/electron.js",
+  "homepage": "./",
+  "dependencies": {
+    "@testing-library/jest-dom": "^5.16.4",
+    "@testing-library/react": "^13.1.1",
+    "@testing-library/user-event": "^13.5.0",
+    "concurrently": "^7.1.0",
+    "cross-env": "^7.0.3",
+    "electron-forge": "^5.2.4",
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0",
+    "react-scripts": "5.0.1",
+    "tesseract.js": "^2.1.5",
+    "wait-on": "^6.0.1",
+    "web-vitals": "^2.1.4"
+  },
+  "scripts": {
+    "react-start": "react-scripts start",
+    "react-build": "react-scripts build",
+    "react-test": "react-scripts test",
+    "react-eject": "react-scripts eject",
+    "electron-build": "electron-builder",
+    "release": "npm run build && electron-builder --linux --win --mac --x64 --ia32 --publish never",
+    "build": "npm run react-build && npm run electron-build",
+    "start": "concurrently \"cross-env BROWSER=none yarn react-start\" \"wait-on http://localhost:3000 && electron .\""
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "browser": {
+    "child_process": false
+  },
+  "devDependencies": {
+    "electron": "^18.1.0",
+    "electron-builder": "^23.0.3",
+    "electron-is-dev": "^2.0.0"
+  }
+}
